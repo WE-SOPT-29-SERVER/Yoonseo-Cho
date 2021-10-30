@@ -17,5 +17,8 @@ module.exports = {
   READ_PROFILE_SUCCESS: "프로필 조회 성공",
 
   // 업데이트
-  USER_UPDATE_SUCCESS: "회원정보 업데이트 성공"
+  USER_UPDATE_SUCCESS: "회원정보 업데이트 성공",
+
+  // 회원 삭제
+  USER_DELETE_SUCCESS: "회원 삭제 성공"
 };
