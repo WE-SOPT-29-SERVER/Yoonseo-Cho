@@ -16,6 +16,18 @@ const addUser = async (client, email, username, phone, idFirebase) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
+const getUserByIdFirebase = async (client, idFirebase) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM "user" u
+    WHERE id_firebase = $1
+    AND is_deleted = FALSE
+    `,
+    [idFirebase],
+  );
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
 const getAllUsers = async (client) => {
   const { rows } = await client.query(
     `
@@ -81,4 +93,4 @@ const deleteUser = async (client, userId) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = { addUser, getAllUsers, getUserById, updateUser, deleteUser };
+module.exports = { addUser, getUserByIdFirebase, getAllUsers, getUserById, updateUser, deleteUser };
